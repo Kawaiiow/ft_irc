@@ -15,34 +15,52 @@ class   Administrator
 
 IAdministrator <|-- Administrator
 
-abstract   ARole
+enum   Mode
 {
-    int id;
-    string  name;
-    int permission
+    i
+    t
+    k
+    o
+    l
 }
 
-class   Role
-
 interface   IUser
+{
+    int rename(string name)
+}
+
 class   User
 {
     string      username
-    list<ARole> role
+    string      nickname
+    Role        role
+    bool        isOps
+}
+
+class   Channel
+{
+    string          name
+    unsigned int    userLimit
+    bool            inviteOnly
+    Mode            mode
+    
+    
 }
 
 class   Server
 {
-    string  serverID
-    list<IUser> users
+    string          serverName
+    unsigned int    port
+    string          password
+    list<IUser>     users
+    list<Channel>   channels
     
     int disconnect(IUser&)
     int kick(IUser&)
     int ban(IUser&)
-    i
 }
 
-ARole <|-- Role
+Server *-- Channel
 
 IUser <|-- User
 
